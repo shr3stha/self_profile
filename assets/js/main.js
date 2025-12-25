@@ -57,8 +57,7 @@
          */
         applyHero() {
             const heroName = document.getElementById('hero-name');
-            const heroSubtitle = document.querySelector('.hero-subtitle');
-            const heroTagline = document.getElementById('hero-tagline');
+            const heroSubtitle = document.getElementById('hero-subtitle');
             const profileImage = document.getElementById('profile-image');
             const acceptingBadge = document.getElementById('accepting-patients-badge');
             const consultationBtn = document.getElementById('consultation-btn');
@@ -68,11 +67,16 @@
             }
 
             if (heroSubtitle && this.config.heroSubtitle) {
-                heroSubtitle.textContent = this.config.heroSubtitle;
+                // Use innerHTML to preserve formatting (admin-controlled content)
+                heroSubtitle.innerHTML = this.config.heroSubtitle;
             }
 
-            if (heroTagline && this.config.heroTagline) {
-                heroTagline.textContent = this.config.heroTagline;
+            // Apply availability status to hero section
+            const heroAvailability = document.getElementById('hero-availability');
+            if (heroAvailability && this.config.availabilityStatus) {
+                heroAvailability.textContent = this.config.availabilityStatus;
+            } else if (heroAvailability) {
+                heroAvailability.style.display = 'none';
             }
 
             if (profileImage && this.config.profileImageUrl) {
@@ -97,12 +101,6 @@
 
             if (consultationBtn && this.config.contactEmail) {
                 consultationBtn.href = `mailto:${this.config.contactEmail}`;
-            }
-
-            // Apply availability status
-            const availabilityStatus = document.getElementById('availability-status');
-            if (availabilityStatus && this.config.availabilityStatus) {
-                availabilityStatus.textContent = this.config.availabilityStatus;
             }
         }
 

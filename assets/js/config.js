@@ -18,12 +18,10 @@ class ConfigManager {
     return {
       heroName: "Jane Doe, FNP",
       heroSubtitle:
-        "Family Nurse Practitioner – Primary care with CKD & hypertension management",
-      heroTagline: "Holistic evidence-based kidney care for adults.",
+        "Family Nurse Practitioner – <strong>Primary care</strong> with <span class=\"accent\">CKD & hypertension</span> management",
       profileImageUrl: "assets/images/placeholder-profile.svg",
       acceptingPatients: false,
-      availabilityStatus:
-        "Limited appointments available Friday–Sunday, 9:00 AM–5:00 PM.",
+      availabilityStatus: "Limited appointments Friday–Sunday, 9AM–5PM",
       bannerEnabled: false,
       bannerText: "",
       bannerType: "info",
