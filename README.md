@@ -1,6 +1,6 @@
 # FNP Profile Site - Static Website for Family Nurse Practitioner
 
-A lightweight, fast-loading static website for a Family Nurse Practitioner specializing in kidney disease care. Features a public profile page and a simple admin interface for content management without requiring code changes.
+A lightweight, fast-loading static website for a Family Nurse Practitioner specializing in holistic, evidence-based kidney disease care. Features a public profile page and a simple admin interface for content management without requiring code changes.
 
 ## Table of Contents
 
@@ -295,7 +295,7 @@ The site uses browser `localStorage` to store configuration:
 {
   "heroName": "Jane Doe, FNP",
   "heroCredentials": "Family Nurse Practitioner specializing in chronic kidney disease and hypertension management",
-  "heroTagline": "Helping adults with chronic kidney disease, high blood pressure, and diabetes protect their kidney function...",
+  "heroTagline": "Holistic evidence-based kidney care for adults.",
   "profileImageUrl": "assets/images/placeholder-profile.svg",
   "acceptingPatients": false,
   "availabilityStatus": "Limited appointments available Friday–Sunday, 9:00 AM–5:00 PM.",
@@ -369,8 +369,8 @@ To add a new theme:
 
 For content not editable through admin panel, edit `index.html`:
 
-- **About Section**: Lines ~80-95
-- **Expertise Cards**: Lines ~100-120
+- **About Section**: Lines ~60-89 (holistic evidence-based messaging)
+- **Expertise Cards**: Lines ~91-120 (3 cards: CKD Support, BP/Diabetes Management, Medication & Lifestyle Integration)
 - **Approach Items**: Lines ~125-145
 - **Disclaimer Text**: Lines ~160-165
 

@@ -1,205 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Family Nurse Practitioner specializing in kidney disease care">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Family Nurse Practitioner specializing in kidney disease care"
+    />
     <title>dummyLLC - Kidney Disease Care</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/styles.css">
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
     <!-- Urgent Banner (admin-controlled) -->
-    <div id="urgent-banner" class="urgent-banner" style="display: none;">
-        <div class="container">
-            <span id="banner-text"></span>
-        </div>
+    <div id="urgent-banner" class="urgent-banner" style="display: none">
+      <div class="container">
+        <span id="banner-text"></span>
+      </div>
     </div>
 
     <!-- Header -->
     <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <h1 class="logo">dummyLLC</h1>
-                <nav class="nav">
-                    <a href="#about" class="nav-link">About</a>
-                    <a href="#expertise" class="nav-link">Expertise</a>
-                    <a href="#approach" class="nav-link">Approach</a>
-                    <a href="#contact" class="nav-link">Contact</a>
-                </nav>
-            </div>
+      <div class="container">
+        <div class="header-content">
+          <h1 class="logo">dummyLLC</h1>
+          <nav class="nav">
+            <a href="#about" class="nav-link">About</a>
+            <a href="#expertise" class="nav-link">Expertise</a>
+            <a href="#approach" class="nav-link">Approach</a>
+            <a href="#contact" class="nav-link">Contact</a>
+          </nav>
         </div>
+      </div>
     </header>
 
     <!-- Hero Section -->
     <section id="hero" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-left">
-                    <div class="profile-image-wrapper">
-                        <img id="profile-image" src="assets/images/placeholder-profile.svg" alt="Profile" class="profile-image">
-                        <span id="accepting-patients-badge" class="accepting-badge" style="display: none;">Accepting New Patients</span>
-                    </div>
-                </div>
-                <div class="hero-right">
-                    <span class="hero-eyebrow">Family Nurse Practitioner · Kidney Health</span>
-                    <h2 id="hero-name" class="hero-name">Jane Doe, FNP</h2>
-                    <p id="hero-credentials" class="hero-credentials">Family Nurse Practitioner specializing in chronic kidney disease and hypertension management</p>
-                    <p id="hero-tagline" class="hero-tagline">Helping adults with chronic kidney disease, high blood pressure, and diabetes protect their kidney function with clear, compassionate care.</p>
-                    <div class="hero-cta">
-                        <a href="mailto:contact@dummyllc.com" class="btn btn-primary" id="consultation-btn">Request a consultation</a>
-                        <p id="availability-status" class="hero-subnote"></p>
-                    </div>
-                </div>
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-left">
+            <div class="profile-image-wrapper">
+              <img
+                id="profile-image"
+                src="assets/images/placeholder-profile.svg"
+                alt="Profile"
+                class="profile-image"
+              />
+              <span
+                id="accepting-patients-badge"
+                class="accepting-badge"
+                style="display: none"
+                >Accepting New Patients</span
+              >
             </div>
+          </div>
+          <div class="hero-right">
+            <span class="hero-eyebrow"
+              >Family Nurse Practitioner · Kidney Health</span
+            >
+            <h2 id="hero-name" class="hero-name">Jane Doe, FNP</h2>
+            <p id="hero-credentials" class="hero-credentials">
+              Family Nurse Practitioner specializing in chronic kidney disease
+              and hypertension management
+            </p>
+            <p id="hero-tagline" class="hero-tagline">
+              Holistic evidence-based kidney care for adults.
+            </p>
+            <div class="hero-cta">
+              <a
+                href="mailto:contact@dummyllc.com"
+                class="btn btn-primary"
+                id="consultation-btn"
+                >Request a consultation</a
+              >
+              <p id="availability-status" class="hero-subnote"></p>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="section about">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">About Your Nurse Practitioner</h2>
-                <p class="section-subtitle">Experienced, patient-centered primary and specialty care for kidney health.</p>
-            </div>
-            <div class="about-layout">
-                <div class="about-text">
-                    <p>
-                        Jane Doe is a Family Nurse Practitioner with focused experience in caring for adults living with chronic kidney disease, hypertension, and diabetes-related kidney complications.
-                        She combines evidence-based medicine with clear education so you understand your labs, medications, and options.
-                    </p>
-                    <p>
-                        Building on years of bedside and outpatient experience as an RN and FNP, and supported by graduate training in nursing and healthcare leadership, Jane works collaboratively with your existing providers to create practical, sustainable care plans that fit your real life.
-                        Her goal is to help you feel informed, supported, and in control of your kidney health.
-                    </p>
-                </div>
-                <div class="about-details">
-                    <h3 class="subsection-title">Credentials</h3>
-                    <ul class="credentials-items list-compact">
-                        <li>Family Nurse Practitioner (FNP)</li>
-                        <li>Registered Nurse (RN), Bachelor of Science in Nursing (BSN)</li>
-                        <li>MBA / Master in Healthcare Leadership (MBA/MHCL)</li>
-                        <li>Experience in primary care and kidney-focused practice settings</li>
-                    </ul>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">About Your Nurse Practitioner</h2>
+          <p class="section-subtitle">Holistic evidence-based kidney care.</p>
         </div>
+        <div class="about-layout">
+          <div class="about-text">
+            <p>
+              Family Nurse Practitioner Jane Doe provides holistic
+              evidence-based care for adults with CKD, hypertension, and
+              diabetes-related kidney disease.
+            </p>
+            <p>
+              Combining evidence-based medicine with holistic wellness
+              approaches, Jane creates personalized care plans that address your
+              labs, lifestyle, medications, and overall well-being through
+              practical, sustainable strategies.
+            </p>
+          </div>
+          <div class="about-details">
+            <h3 class="subsection-title">Credentials</h3>
+            <ul class="credentials-items list-compact">
+              <li>Family Nurse Practitioner (FNP)</li>
+              <li>
+                Registered Nurse (RN), Bachelor of Science in Nursing (BSN)
+              </li>
+              <li>MBA / Master in Healthcare Leadership (MBA/MHCL)</li>
+              <li>Holistic + evidence-based kidney health practice</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Expertise Section -->
     <section id="expertise" class="section expertise">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Expertise in Kidney Health</h2>
-                <p class="section-subtitle">Support built around real life, not just lab numbers.</p>
-            </div>
-            <div class="expertise-grid card-grid">
-                <article class="expertise-card card">
-                    <h3 class="card-title">Chronic Kidney Disease Support</h3>
-                    <p class="card-text">
-                        Help understanding your CKD stage, lab results, and treatment plan,
-                        with practical guidance on slowing disease progression where possible.
-                    </p>
-                </article>
-                <article class="expertise-card card">
-                    <h3 class="card-title">Blood Pressure & Diabetes Management</h3>
-                    <p class="card-text">
-                        Education and coaching to manage high blood pressure and diabetes,
-                        two of the most important factors in protecting kidney function.
-                    </p>
-                </article>
-                <article class="expertise-card card">
-                    <h3 class="card-title">Medication & Lifestyle Counseling</h3>
-                    <p class="card-text">
-                        Review of medications, over-the-counter products, and lifestyle choices
-                        that may affect your kidneys, with step-by-step changes you can actually follow.
-                    </p>
-                </article>
-                <article class="expertise-card card">
-                    <h3 class="card-title">Care Coordination</h3>
-                    <p class="card-text">
-                        Support in communicating with your nephrologist and primary care provider,
-                        so your care team is aligned and nothing important is missed.
-                    </p>
-                </article>
-            </div>
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Holistic Kidney Health Expertise</h2>
+          <p class="section-subtitle">
+            Evidence-based strategies + whole-person wellness.
+          </p>
         </div>
+        <div class="expertise-grid card-grid">
+          <article class="expertise-card card">
+            <h3 class="card-title">Chronic Kidney Disease Support</h3>
+            <p class="card-text">
+              CKD lab interpretation + holistic progression strategies.
+            </p>
+          </article>
+          <article class="expertise-card card">
+            <h3 class="card-title">Blood Pressure & Diabetes Management</h3>
+            <p class="card-text">
+              BP/diabetes meds + holistic kidney protection.
+            </p>
+          </article>
+          <article class="expertise-card card">
+            <h3 class="card-title">Medication & Lifestyle Integration</h3>
+            <p class="card-text">Meds review + holistic nutrition/mind-body.</p>
+          </article>
+        </div>
+      </div>
     </section>
 
     <!-- Approach Section -->
     <section id="approach" class="section approach">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Care That Fits Your Life</h2>
-                <p class="section-subtitle">Clear, respectful, and collaborative from the first conversation.</p>
-            </div>
-            <div class="approach-list approach-grid">
-                <div class="approach-item">
-                    <h3 class="approach-title">Listen First</h3>
-                    <p class="approach-text">
-                        Your goals, routines, and concerns guide the plan.
-                        Every visit starts with understanding what matters most to you.
-                    </p>
-                </div>
-                <div class="approach-item">
-                    <h3 class="approach-title">Explain Clearly</h3>
-                    <p class="approach-text">
-                        Lab results, medications, and diagnoses are explained in plain language,
-                        so you always know what is happening and why.
-                    </p>
-                </div>
-                <div class="approach-item">
-                    <h3 class="approach-title">Plan Together</h3>
-                    <p class="approach-text">
-                        Care plans are designed with you, not for you—stepwise, achievable changes
-                        that fit your daily life and existing medical care.
-                    </p>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Care That Fits Your Life</h2>
+          <p class="section-subtitle">
+            Clear, respectful, and collaborative from the first conversation.
+          </p>
         </div>
+        <div class="approach-list approach-grid">
+          <div class="approach-item">
+            <h3 class="approach-title">Listen First</h3>
+            <p class="approach-text">
+              Your goals, routines, and concerns guide the plan. Every visit
+              starts with understanding what matters most to you.
+            </p>
+          </div>
+          <div class="approach-item">
+            <h3 class="approach-title">Explain Clearly</h3>
+            <p class="approach-text">
+              Lab results, medications, and diagnoses are explained in plain
+              language, so you always know what is happening and why.
+            </p>
+          </div>
+          <div class="approach-item">
+            <h3 class="approach-title">Plan Together</h3>
+            <p class="approach-text">
+              Care plans are designed with you, not for you—stepwise, achievable
+              changes that fit your daily life and existing medical care.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="section contact">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Contact & Availability</h2>
-                <p class="section-subtitle">Reach out to learn more about working together.</p>
-            </div>
-            <div class="contact-layout">
-                <div class="contact-details">
-                    <h3 class="subsection-title">Practice Information</h3>
-                    <ul class="list-compact contact-info-list">
-                        <li><strong>Business:</strong> <span id="contact-business-name">dummyLLC</span></li>
-                        <li><strong>Location:</strong> <span id="contact-location">Bel Air, Maryland (serving surrounding communities)</span></li>
-                        <li><strong>Email:</strong> <a id="contact-email-link" href="mailto:contact@dummyllc.com">contact@dummyllc.com</a></li>
-                        <li><strong>Availability:</strong> <span id="contact-availability">Friday, Saturday, and Sunday, 9:00 AM–5:00 PM</span></li>
-                    </ul>
-                </div>
-                <div class="contact-note">
-                    <h3 class="subsection-title">Important Information</h3>
-                    <div class="disclaimer">
-                        <p class="disclaimer-text">
-                            This website is for informational and marketing purposes only and does not provide emergency medical care or establish a patient–provider relationship.
-                            If you are experiencing a medical emergency, call 911 or go to the nearest emergency department.
-                        </p>
-                    </div>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Contact & Availability</h2>
+          <p class="section-subtitle">
+            Reach out to learn more about working together.
+          </p>
         </div>
+        <div class="contact-layout">
+          <div class="contact-details">
+            <h3 class="subsection-title">Practice Information</h3>
+            <ul class="list-compact contact-info-list">
+              <li>
+                <strong>Business:</strong>
+                <span id="contact-business-name">dummyLLC</span>
+              </li>
+              <li>
+                <strong>Location:</strong>
+                <span id="contact-location"
+                  >Bel Air, Maryland (serving surrounding communities)</span
+                >
+              </li>
+              <li>
+                <strong>Email:</strong>
+                <a id="contact-email-link" href="mailto:contact@dummyllc.com"
+                  >contact@dummyllc.com</a
+                >
+              </li>
+              <li>
+                <strong>Availability:</strong>
+                <span id="contact-availability"
+                  >Friday, Saturday, and Sunday, 9:00 AM–5:00 PM</span
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="contact-note">
+            <h3 class="subsection-title">Important Information</h3>
+            <div class="disclaimer">
+              <p class="disclaimer-text">
+                This website is for informational and marketing purposes only
+                and does not provide emergency medical care or establish a
+                patient–provider relationship. If you are experiencing a medical
+                emergency, call 911 or go to the nearest emergency department.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <p class="footer-text">&copy; <span id="current-year"></span> dummyLLC. All rights reserved.</p>
-        </div>
+      <div class="container">
+        <p class="footer-text">
+          &copy; <span id="current-year"></span> dummyLLC. All rights reserved.
+        </p>
+      </div>
     </footer>
 
     <script src="assets/js/config.js"></script>
     <script src="assets/js/main.js"></script>
-</body>
+  </body>
 </html>
-

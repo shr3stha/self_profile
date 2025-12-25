@@ -18,7 +18,7 @@ class ConfigManager {
         return {
             heroName: 'Jane Doe, FNP',
             heroCredentials: 'Family Nurse Practitioner specializing in chronic kidney disease and hypertension management',
-            heroTagline: 'Helping adults with chronic kidney disease, high blood pressure, and diabetes protect their kidney function with clear, compassionate care.',
+            heroTagline: 'Holistic evidence-based kidney care for adults.',
             profileImageUrl: 'assets/images/placeholder-profile.svg',
             acceptingPatients: false,
             availabilityStatus: 'Limited appointments available Friday–Sunday, 9:00 AM–5:00 PM.',
