@@ -21,7 +21,7 @@ class ConfigManager {
       heroName: "Rujita Munankarmi, FNP",
       heroSubtitle:
         '<strong>Primary care</strong> with <span class="accent">CKD & hypertension</span> prevention and management',
-      profileImageUrl: "assets/images/placeholder-profile.svg",
+      profileImageUrl: "assets/images/pfp.jpg",
       acceptingPatients: false,
       availabilityStatus: "Please contact us to inquire about availability.",
       showHeaderNav: false,
@@ -100,6 +100,14 @@ class ConfigManager {
           needsSave = true;
         }
 
+        // Migration: Update old profile image if it exists
+        if (
+          merged.profileImageUrl === "assets/images/placeholder-profile.svg"
+        ) {
+          merged.profileImageUrl = "assets/images/pfp.jpg";
+          needsSave = true;
+        }
+
         // Auto-save migrated values and update version
         if (needsSave) {
           this.save(merged);
@@ -130,6 +138,100 @@ class ConfigManager {
       console.error("Error forcing refresh:", error);
       return { ...this.defaultConfig };
     }
+  }
+
+  /**
+   * Finds the highest numbered pfp image (pfp1.jpg, pfp2.jpg, etc.)
+   * Uses image loading to detect which files exist
+   * @returns {Promise<string>} Path to the highest numbered pfp image, or default placeholder
+   */
+  async findLatestPfpImage() {
+    const cacheKey = "fnp-latest-pfp-cache";
+    const cacheTimeKey = "fnp-latest-pfp-cache-time";
+    const cacheDuration = 24 * 60 * 60 * 1000; // 24 hours
+
+    // Check cache first
+    try {
+      const cached = localStorage.getItem(cacheKey);
+      const cacheTime = localStorage.getItem(cacheTimeKey);
+      if (cached && cacheTime) {
+        const age = Date.now() - parseInt(cacheTime, 10);
+        if (age < cacheDuration) {
+          // Verify cached image still exists
+          const exists = await this.checkImageExists(cached);
+          if (exists) {
+            return cached;
+          }
+        }
+      }
+    } catch (error) {
+      console.warn("Error reading pfp cache:", error);
+    }
+
+    // Try to find the highest numbered pfp image
+    // Start from a reasonable high number and work backwards for efficiency
+    const maxAttempts = 20; // Check up to pfp20.jpg
+    let highestFound = null;
+    let highestNumber = 0;
+
+    // Try numbers in reverse order (faster if high numbers exist)
+    for (let i = maxAttempts; i >= 1; i--) {
+      const imagePath = `assets/images/pfp${i}.jpg`;
+      const exists = await this.checkImageExists(imagePath);
+
+      if (exists) {
+        highestFound = imagePath;
+        highestNumber = i;
+        break; // Found the highest, no need to check lower numbers
+      }
+    }
+
+    // Cache the result
+    if (highestFound) {
+      try {
+        localStorage.setItem(cacheKey, highestFound);
+        localStorage.setItem(cacheTimeKey, Date.now().toString());
+      } catch (error) {
+        console.warn("Error caching pfp image:", error);
+      }
+      return highestFound;
+    }
+
+    // Fallback to default placeholder if no pfp images found
+    const fallback = "assets/images/placeholder-profile.svg";
+    try {
+      localStorage.setItem(cacheKey, fallback);
+      localStorage.setItem(cacheTimeKey, Date.now().toString());
+    } catch (error) {
+      console.warn("Error caching fallback image:", error);
+    }
+    return fallback;
+  }
+
+  /**
+   * Checks if an image file exists by attempting to load it
+   * @param {string} imagePath - Path to the image file
+   * @returns {Promise<boolean>} True if image exists, false otherwise
+   */
+  checkImageExists(imagePath) {
+    return new Promise((resolve) => {
+      const img = new Image();
+      const timeout = setTimeout(() => {
+        resolve(false);
+      }, 2000); // 2 second timeout
+
+      img.onload = () => {
+        clearTimeout(timeout);
+        resolve(true);
+      };
+
+      img.onerror = () => {
+        clearTimeout(timeout);
+        resolve(false);
+      };
+
+      img.src = imagePath;
+    });
   }
 
   /**

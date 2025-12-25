@@ -16,12 +16,12 @@
         /**
          * Initializes the page by applying configuration
          */
-        init() {
+        async init() {
             // Reload config to ensure we have the latest (after any migrations)
             this.config = configManager.load();
             this.applyBanner();
             this.applyTheme();
-            this.applyHero();
+            await this.applyHero(); // Now async to handle image detection
             this.applyContact();
             this.applyVisibility();
             this.setCurrentYear();
@@ -31,9 +31,9 @@
          * Refreshes all components with current config
          * Call this after config changes to update all components
          */
-        refreshAll() {
+        async refreshAll() {
             this.config = configManager.load();
-            this.init();
+            await this.init();
         }
 
         /**
@@ -99,7 +99,7 @@
         /**
          * Applies hero section configuration
          */
-        applyHero() {
+        async applyHero() {
             const heroName = document.getElementById('hero-name');
             const heroSubtitle = document.getElementById('hero-subtitle');
             const profileImage = document.getElementById('profile-image');
@@ -122,14 +122,41 @@
             }
             // Note: Visibility is controlled by applyVisibility() method
 
-            if (profileImage && this.config.profileImageUrl) {
-                profileImage.src = this.config.profileImageUrl;
-                profileImage.alt = this.config.heroName || 'Profile';
-                // Handle image loading errors gracefully
-                profileImage.onerror = function() {
-                    this.src = 'assets/images/placeholder-profile.svg';
-                    this.alt = 'Profile image not available';
-                };
+            if (profileImage) {
+                // Determine which image to use
+                let imageToUse = this.config.profileImageUrl;
+                
+                // If using pfp pattern (pfp.jpg, pfp1.jpg, pfp2.jpg, etc.), find the latest numbered version
+                if (imageToUse && imageToUse.includes('pfp')) {
+                    try {
+                        // Always check for the latest numbered pfp image
+                        const latest = await configManager.findLatestPfpImage();
+                        // Use the latest found if it's a numbered pfp, otherwise use configured value
+                        if (latest && latest.match(/pfp\d+\.jpg/)) {
+                            imageToUse = latest;
+                        } else if (latest) {
+                            // Fallback image found
+                            imageToUse = latest;
+                        }
+                    } catch (error) {
+                        console.error("Error finding latest pfp image:", error);
+                        // Fallback to placeholder if error occurs
+                        imageToUse = 'assets/images/placeholder-profile.svg';
+                    }
+                }
+                
+                // Set the image
+                if (imageToUse) {
+                    profileImage.src = imageToUse;
+                    profileImage.alt = this.config.heroName || 'Profile';
+                    
+                    // Handle image loading errors gracefully
+                    profileImage.onerror = function() {
+                        console.warn("Profile image failed to load:", imageToUse);
+                        this.src = 'assets/images/placeholder-profile.svg';
+                        this.alt = 'Profile image not available';
+                    };
+                }
             }
 
             if (acceptingBadge) {
