@@ -18,10 +18,10 @@ class ConfigManager {
     return {
       heroName: "Jane Doe, FNP",
       heroSubtitle:
-        "Family Nurse Practitioner – <strong>Primary care</strong> with <span class=\"accent\">CKD & hypertension</span> management",
+        "<strong>Primary care</strong> with <span class=\"accent\">CKD & hypertension</span> prevention and management",
       profileImageUrl: "assets/images/placeholder-profile.svg",
       acceptingPatients: false,
-      availabilityStatus: "Limited appointments Friday–Sunday, 9AM–5PM",
+      availabilityStatus: "Please contact us to inquire about availability.",
       bannerEnabled: false,
       bannerText: "",
       bannerType: "info",

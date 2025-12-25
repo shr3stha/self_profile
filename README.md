@@ -256,7 +256,7 @@ this.password = "your-secure-password-here";
 
    - **Profile Image URL**: Full URL to your profile image
    - **Display Name**: Your name and credentials (e.g., "Jane Doe, FNP")
-   - **Hero Subtitle**: Your credentials and specialization. Supports HTML formatting: use `<strong>` for bold (primary color) and `<span class="accent">` for accent color (e.g., "Family Nurse Practitioner – <strong>Primary care</strong> with <span class=\"accent\">CKD & hypertension</span> management")
+   - **Hero Subtitle**: Your credentials and specialization. Supports HTML formatting: use `<strong>` for bold (primary color) and `<span class="accent">` for accent color (e.g., "<strong>Primary care</strong> with <span class=\"accent\">CKD & hypertension</span> prevention and management")
    - **Accepting New Patients**: Checkbox to show/hide badge
    - **Availability Status**: Text describing your availability (e.g., "Limited appointments available Friday–Sunday, 9:00 AM–5:00 PM.")
 
@@ -294,7 +294,7 @@ The site uses browser `localStorage` to store configuration:
 ```javascript
 {
   "heroName": "Jane Doe, FNP",
-  "heroSubtitle": "Family Nurse Practitioner – <strong>Primary care</strong> with <span class=\"accent\">CKD & hypertension</span> management",
+  "heroSubtitle": "<strong>Primary care</strong> with <span class=\"accent\">CKD & hypertension</span> prevention and management",
   "profileImageUrl": "assets/images/placeholder-profile.svg",
   "acceptingPatients": false,
   "availabilityStatus": "Limited appointments Friday–Sunday, 9AM–5PM",
