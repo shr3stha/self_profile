@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Runner</title>
+    <style>
+        body {
+            font-family: monospace;
+            padding: 2rem;
+            background: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .test-section h2 {
+            margin-top: 0;
+            color: #1F4E79;
+        }
+        .test-output {
+            background: #f9f9f9;
+            padding: 1rem;
+            border-radius: 4px;
+            white-space: pre-wrap;
+            font-size: 0.9rem;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .btn-run {
+            background: #1F4E79;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+        .btn-run:hover {
+            background: #2a5f8f;
+        }
+    </style>
+</head>
+<body>
+    <h1>FNP Site Test Suite</h1>
+    
+    <div class="test-section">
+        <h2>Config Manager Tests</h2>
+        <button class="btn-run" onclick="runConfigTests()">Run Config Tests</button>
+        <div id="config-output" class="test-output">Click "Run Config Tests" to execute tests...</div>
+    </div>
+
+    <div class="test-section">
+        <h2>Main Page Controller Tests</h2>
+        <button class="btn-run" onclick="runMainTests()">Run Main Page Tests</button>
+        <div id="main-output" class="test-output">Click "Run Main Page Tests" to execute tests...</div>
+    </div>
+
+    <div class="test-section">
+        <h2>Admin Controller Tests</h2>
+        <button class="btn-run" onclick="runAdminTests()">Run Admin Tests</button>
+        <div id="admin-output" class="test-output">Click "Run Admin Tests" to execute tests...</div>
+    </div>
+
+    <script>
+        // Capture console.log for test output
+        function captureConsole(callback) {
+            const logs = [];
+            const originalLog = console.log;
+            const originalError = console.error;
+            
+            console.log = (...args) => {
+                logs.push(args.join(' '));
+                originalLog.apply(console, args);
+            };
+            
+            console.error = (...args) => {
+                logs.push('ERROR: ' + args.join(' '));
+                originalError.apply(console, args);
+            };
+            
+            try {
+                callback();
+            } finally {
+                console.log = originalLog;
+                console.error = originalError;
+            }
+            
+            return logs.join('\n');
+        }
+
+        function runConfigTests() {
+            const output = document.getElementById('config-output');
+            output.textContent = 'Running tests...';
+            
+            setTimeout(() => {
+                const result = captureConsole(() => {
+                    // Load and run config tests
+                    const script = document.createElement('script');
+                    script.src = 'config.test.js';
+                    script.onload = () => {
+                        output.textContent = 'Tests completed. Check console for details.';
+                    };
+                    document.head.appendChild(script);
+                });
+                output.textContent = result || 'Tests completed. Check browser console for details.';
+            }, 100);
+        }
+
+        function runMainTests() {
+            const output = document.getElementById('main-output');
+            output.textContent = 'Running tests...';
+            
+            setTimeout(() => {
+                const result = captureConsole(() => {
+                    const script = document.createElement('script');
+                    script.src = 'main.test.js';
+                    script.onload = () => {
+                        output.textContent = 'Tests completed. Check console for details.';
+                    };
+                    document.head.appendChild(script);
+                });
+                output.textContent = result || 'Tests completed. Check browser console for details.';
+            }, 100);
+        }
+
+        function runAdminTests() {
+            const output = document.getElementById('admin-output');
+            output.textContent = 'Running tests...';
+            
+            setTimeout(() => {
+                const result = captureConsole(() => {
+                    const script = document.createElement('script');
+                    script.src = 'admin.test.js';
+                    script.onload = () => {
+                        output.textContent = 'Tests completed. Check console for details.';
+                    };
+                    document.head.appendChild(script);
+                });
+                output.textContent = result || 'Tests completed. Check browser console for details.';
+            }, 100);
+        }
+    </script>
+</body>
+</html>
+
