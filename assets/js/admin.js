@@ -111,6 +111,8 @@
           ? config.showContactAvailability
           : true;
 
+      document.getElementById("show-header-logo").checked =
+        config.showHeaderLogo !== undefined ? config.showHeaderLogo : false;
       document.getElementById("show-header-nav").checked =
         config.showHeaderNav !== undefined ? config.showHeaderNav : false;
       document.getElementById("show-hero-availability").checked =
@@ -119,6 +121,10 @@
           : false;
       document.getElementById("show-hero-cta").checked =
         config.showHeroCTA !== undefined ? config.showHeroCTA : false;
+      document.getElementById("show-footer-copyright").checked =
+        config.showFooterCopyright !== undefined
+          ? config.showFooterCopyright
+          : false;
 
       // Contact
       document.getElementById("business-name").value =
@@ -147,10 +153,13 @@
         availabilityStatus: document
           .getElementById("availability-status")
           .value.trim(),
+        showHeaderLogo: document.getElementById("show-header-logo").checked,
         showHeaderNav: document.getElementById("show-header-nav").checked,
         showHeroAvailability: document.getElementById("show-hero-availability")
           .checked,
         showHeroCTA: document.getElementById("show-hero-cta").checked,
+        showFooterCopyright: document.getElementById("show-footer-copyright")
+          .checked,
         businessName: document.getElementById("business-name").value.trim(),
         location: document.getElementById("location").value.trim(),
         contactEmail: document.getElementById("contact-email").value.trim(),

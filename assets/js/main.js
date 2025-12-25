@@ -54,12 +54,18 @@
         }
 
         /**
-         * Applies visibility settings for header nav, hero availability, and hero CTA
+         * Applies visibility settings for header logo, header nav, hero availability, hero CTA, and footer copyright
          */
         applyVisibility() {
+            const headerLogo = document.getElementById('header-logo');
             const headerNav = document.getElementById('header-nav');
             const heroAvailability = document.getElementById('hero-availability');
             const heroCTA = document.getElementById('hero-cta');
+            const footerCopyright = document.getElementById('footer-copyright');
+
+            if (headerLogo) {
+                headerLogo.style.display = (this.config.showHeaderLogo !== false) ? '' : 'none';
+            }
 
             if (headerNav) {
                 headerNav.style.display = (this.config.showHeaderNav !== false) ? '' : 'none';
@@ -71,6 +77,10 @@
 
             if (heroCTA) {
                 heroCTA.style.display = (this.config.showHeroCTA !== false) ? '' : 'none';
+            }
+
+            if (footerCopyright) {
+                footerCopyright.style.display = (this.config.showFooterCopyright !== false) ? '' : 'none';
             }
         }
 
