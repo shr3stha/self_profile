@@ -18,20 +18,24 @@ class ConfigManager {
     return {
       heroName: "Jane Doe, FNP",
       heroSubtitle:
-        "<strong>Primary care</strong> with <span class=\"accent\">CKD & hypertension</span> prevention and management",
+        '<strong>Primary care</strong> with <span class="accent">CKD & hypertension</span> prevention and management',
       profileImageUrl: "assets/images/placeholder-profile.svg",
       acceptingPatients: false,
       availabilityStatus: "Please contact us to inquire about availability.",
-      showHeaderNav: true,
-      showHeroAvailability: true,
-      showHeroCTA: true,
+      showHeaderNav: false,
+      showHeroAvailability: false,
+      showHeroCTA: false,
       bannerEnabled: false,
       bannerText: "",
       bannerType: "info",
       theme: "default",
       businessName: "dummyLLC",
       contactEmail: "contact@dummyllc.com",
-      location: "Bel Air, Maryland (serving surrounding communities)",
+      location: "Harford County, Maryland",
+      showContactBusiness: false,
+      showContactLocation: true,
+      showContactEmail: true,
+      showContactAvailability: true,
     };
   }
 
@@ -44,7 +48,19 @@ class ConfigManager {
       const stored = localStorage.getItem(this.storageKey);
       if (stored) {
         const parsed = JSON.parse(stored);
-        return { ...this.defaultConfig, ...parsed };
+        const merged = { ...this.defaultConfig, ...parsed };
+
+        // Migration: Update old location value if it exists
+        if (
+          merged.location ===
+          "Bel Air, Maryland (serving surrounding communities)"
+        ) {
+          merged.location = "Harford County, Maryland";
+          // Auto-save the migrated value
+          this.save(merged);
+        }
+
+        return merged;
       }
     } catch (error) {
       console.error("Error loading config:", error);

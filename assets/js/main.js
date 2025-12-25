@@ -133,7 +133,12 @@
             const contactLocation = document.getElementById('contact-location');
             const contactEmail = document.getElementById('contact-email-link');
             const contactAvailability = document.getElementById('contact-availability');
+            const contactFieldBusiness = document.getElementById('contact-field-business');
+            const contactFieldLocation = document.getElementById('contact-field-location');
+            const contactFieldEmail = document.getElementById('contact-field-email');
+            const contactFieldAvailability = document.getElementById('contact-field-availability');
 
+            // Update content
             if (businessName && this.config.businessName) {
                 businessName.textContent = this.config.businessName;
             }
@@ -149,6 +154,23 @@
 
             if (contactAvailability && this.config.availabilityStatus) {
                 contactAvailability.textContent = this.config.availabilityStatus;
+            }
+
+            // Apply visibility settings
+            if (contactFieldBusiness) {
+                contactFieldBusiness.style.display = (this.config.showContactBusiness !== false) ? '' : 'none';
+            }
+
+            if (contactFieldLocation) {
+                contactFieldLocation.style.display = (this.config.showContactLocation !== false) ? '' : 'none';
+            }
+
+            if (contactFieldEmail) {
+                contactFieldEmail.style.display = (this.config.showContactEmail !== false) ? '' : 'none';
+            }
+
+            if (contactFieldAvailability) {
+                contactFieldAvailability.style.display = (this.config.showContactAvailability !== false) ? '' : 'none';
             }
         }
 

@@ -1,241 +1,368 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin - dummyLLC</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
     <style>
-        .admin-container {
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 2rem;
-        }
-        .admin-form {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: #1F4E79;
-        }
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            font-size: 1rem;
-        }
-        .form-group textarea {
-            min-height: 100px;
-            resize: vertical;
-        }
-        .form-group input[type="checkbox"] {
-            width: auto;
-            margin-right: 0.5rem;
-        }
-        .checkbox-group {
-            display: flex;
-            align-items: center;
-        }
-        .btn-save {
-            background: #1F4E79;
-            color: white;
-            padding: 0.75rem 2rem;
-            border: none;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            margin-top: 1rem;
-        }
-        .btn-save:hover {
-            background: #2a5f8f;
-        }
-        .message {
-            padding: 1rem;
-            border-radius: 4px;
-            margin-bottom: 1rem;
-            display: none;
-        }
-        .message.success {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-        .message.error {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-        }
-        .section-divider {
-            border-top: 2px solid #e0e0e0;
-            margin: 2rem 0;
-            padding-top: 2rem;
-        }
-        .admin-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        .admin-header h1 {
-            color: #1F4E79;
-        }
-        .password-protection {
-            max-width: 400px;
-            margin: 4rem auto;
-            padding: 2rem;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        .password-input {
-            width: 100%;
-            padding: 0.75rem;
-            margin-bottom: 1rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
+      .admin-container {
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 2rem;
+      }
+      .admin-form {
+        background: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: #1f4e79;
+      }
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-size: 1rem;
+      }
+      .form-group textarea {
+        min-height: 100px;
+        resize: vertical;
+      }
+      .form-group input[type="checkbox"] {
+        width: auto;
+        margin-right: 0.5rem;
+      }
+      .checkbox-group {
+        display: flex;
+        align-items: center;
+      }
+      .btn-save {
+        background: #1f4e79;
+        color: white;
+        padding: 0.75rem 2rem;
+        border: none;
+        border-radius: 4px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        margin-top: 1rem;
+      }
+      .btn-save:hover {
+        background: #2a5f8f;
+      }
+      .message {
+        padding: 1rem;
+        border-radius: 4px;
+        margin-bottom: 1rem;
+        display: none;
+      }
+      .message.success {
+        background: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+      }
+      .message.error {
+        background: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+      }
+      .section-divider {
+        border-top: 2px solid #e0e0e0;
+        margin: 2rem 0;
+        padding-top: 2rem;
+      }
+      .admin-header {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      .admin-header h1 {
+        color: #1f4e79;
+      }
+      .password-protection {
+        max-width: 400px;
+        margin: 4rem auto;
+        padding: 2rem;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+      .password-input {
+        width: 100%;
+        padding: 0.75rem;
+        margin-bottom: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div id="password-screen" class="password-protection">
-        <h2>Admin Access</h2>
-        <p>Please enter the admin password:</p>
-        <input type="password" id="password-input" class="password-input" placeholder="Enter password">
-        <button id="password-submit" class="btn-save" style="width: 100%;">Access Admin</button>
-        <div id="password-error" class="message error" style="margin-top: 1rem;"></div>
+      <h2>Admin Access</h2>
+      <p>Please enter the admin password:</p>
+      <input
+        type="password"
+        id="password-input"
+        class="password-input"
+        placeholder="Enter password"
+      />
+      <button id="password-submit" class="btn-save" style="width: 100%">
+        Access Admin
+      </button>
+      <div
+        id="password-error"
+        class="message error"
+        style="margin-top: 1rem"
+      ></div>
     </div>
 
-    <div id="admin-content" style="display: none;">
-        <div class="admin-container">
-            <div class="admin-header">
-                <h1>dummyLLC Admin Panel</h1>
-                <p>Manage your website content</p>
-            </div>
-
-            <div id="admin-message" class="message"></div>
-
-            <form id="admin-form" class="admin-form">
-                <!-- Banner Settings -->
-                <h2>Urgent Banner</h2>
-                <div class="form-group">
-                    <div class="checkbox-group">
-                        <input type="checkbox" id="banner-enabled" name="bannerEnabled">
-                        <label for="banner-enabled">Enable urgent banner</label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="banner-text">Banner Text</label>
-                    <textarea id="banner-text-input" name="bannerText" placeholder="e.g., Winter Break: dummyLLC is not accepting new clients from Dec 24 – Jan 2."></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="banner-type">Banner Type</label>
-                    <select id="banner-type" name="bannerType">
-                        <option value="info">Info (Blue)</option>
-                        <option value="urgent">Urgent (Red)</option>
-                        <option value="warning">Warning (Orange)</option>
-                    </select>
-                </div>
-
-                <div class="section-divider"></div>
-
-                <!-- Theme Settings -->
-                <h2>Theme</h2>
-                <div class="form-group">
-                    <label for="theme">Select Theme</label>
-                    <select id="theme" name="theme">
-                        <option value="default">Default (Professional Blue/Teal)</option>
-                        <option value="winter">Winter (Cool Blues)</option>
-                        <option value="spring">Spring (Softer Green Accent)</option>
-                        <option value="autumn">Autumn (Muted Warm Accent)</option>
-                    </select>
-                </div>
-
-                <div class="section-divider"></div>
-
-                <!-- Hero/Profile Settings -->
-                <h2>Hero/Profile</h2>
-                <div class="form-group">
-                    <label for="profile-image-url">Profile Image URL</label>
-                    <input type="text" id="profile-image-url" name="profileImageUrl" placeholder="https://example.com/image.jpg">
-                    <small style="color: #666; display: block; margin-top: 0.25rem;">Enter a URL to your profile image</small>
-                </div>
-                <div class="form-group">
-                    <label for="hero-name">Display Name</label>
-                    <input type="text" id="hero-name" name="heroName" placeholder="Your Name, DNP, FNP-C">
-                </div>
-                <div class="form-group">
-                    <label for="hero-subtitle">Hero Subtitle</label>
-                    <input type="text" id="hero-subtitle" name="heroSubtitle" placeholder="&lt;strong&gt;Primary care&lt;/strong&gt; with &lt;span class=&quot;accent&quot;&gt;CKD &amp; hypertension&lt;/span&gt; prevention and management">
-                    <small style="color: #666; display: block; margin-top: 0.25rem;">Use HTML: &lt;strong&gt; for bold, &lt;span class="accent"&gt; for accent color</small>
-                </div>
-                <div class="form-group">
-                    <div class="checkbox-group">
-                        <input type="checkbox" id="accepting-patients" name="acceptingPatients">
-                        <label for="accepting-patients">Accepting new patients</label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="availability-status">Availability Status</label>
-                    <input type="text" id="availability-status" name="availabilityStatus" placeholder="e.g., Limited appointments available Friday–Sunday, 9:00 AM–5:00 PM">
-                    <small style="color: #666; display: block; margin-top: 0.25rem;">This will appear under the consultation button and in the contact section</small>
-                </div>
-                <div class="form-group">
-                    <div class="checkbox-group">
-                        <input type="checkbox" id="show-header-nav" name="showHeaderNav">
-                        <label for="show-header-nav">Show header navigation</label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="checkbox-group">
-                        <input type="checkbox" id="show-hero-availability" name="showHeroAvailability">
-                        <label for="show-hero-availability">Show hero availability text</label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="checkbox-group">
-                        <input type="checkbox" id="show-hero-cta" name="showHeroCTA">
-                        <label for="show-hero-cta">Show consultation button</label>
-                    </div>
-                </div>
-
-                <div class="section-divider"></div>
-
-                <!-- Contact Settings -->
-                <h2>Contact Information</h2>
-                <div class="form-group">
-                    <label for="business-name">Business Name</label>
-                    <input type="text" id="business-name" name="businessName" placeholder="dummyLLC">
-                </div>
-                <div class="form-group">
-                    <label for="location">Location</label>
-                    <input type="text" id="location" name="location" placeholder="Bel Air, Maryland (serving surrounding communities)">
-                </div>
-                <div class="form-group">
-                    <label for="contact-email">Contact Email</label>
-                    <input type="email" id="contact-email" name="contactEmail" placeholder="contact@dummyllc.com">
-                </div>
-
-                <button type="submit" class="btn-save">Save Changes</button>
-            </form>
+    <div id="admin-content" style="display: none">
+      <div class="admin-container">
+        <div class="admin-header">
+          <h1>dummyLLC Admin Panel</h1>
+          <p>Manage your website content</p>
         </div>
+
+        <div id="admin-message" class="message"></div>
+
+        <form id="admin-form" class="admin-form">
+          <!-- Banner Settings -->
+          <h2>Urgent Banner</h2>
+          <div class="form-group">
+            <div class="checkbox-group">
+              <input type="checkbox" id="banner-enabled" name="bannerEnabled" />
+              <label for="banner-enabled">Enable urgent banner</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="banner-text">Banner Text</label>
+            <textarea
+              id="banner-text-input"
+              name="bannerText"
+              placeholder="e.g., Winter Break: dummyLLC is not accepting new clients from Dec 24 – Jan 2."
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="banner-type">Banner Type</label>
+            <select id="banner-type" name="bannerType">
+              <option value="info">Info (Blue)</option>
+              <option value="urgent">Urgent (Red)</option>
+              <option value="warning">Warning (Orange)</option>
+            </select>
+          </div>
+
+          <div class="section-divider"></div>
+
+          <!-- Theme Settings -->
+          <h2>Theme</h2>
+          <div class="form-group">
+            <label for="theme">Select Theme</label>
+            <select id="theme" name="theme">
+              <option value="default">Default (Professional Blue/Teal)</option>
+              <option value="winter">Winter (Cool Blues)</option>
+              <option value="spring">Spring (Softer Green Accent)</option>
+              <option value="autumn">Autumn (Muted Warm Accent)</option>
+            </select>
+          </div>
+
+          <div class="section-divider"></div>
+
+          <!-- Hero/Profile Settings -->
+          <h2>Hero/Profile</h2>
+          <div class="form-group">
+            <label for="profile-image-url">Profile Image URL</label>
+            <input
+              type="text"
+              id="profile-image-url"
+              name="profileImageUrl"
+              placeholder="https://example.com/image.jpg"
+            />
+            <small style="color: #666; display: block; margin-top: 0.25rem"
+              >Enter a URL to your profile image</small
+            >
+          </div>
+          <div class="form-group">
+            <label for="hero-name">Display Name</label>
+            <input
+              type="text"
+              id="hero-name"
+              name="heroName"
+              placeholder="Your Name, DNP, FNP-C"
+            />
+          </div>
+          <div class="form-group">
+            <label for="hero-subtitle">Hero Subtitle</label>
+            <input
+              type="text"
+              id="hero-subtitle"
+              name="heroSubtitle"
+              placeholder='&lt;strong&gt;Primary care&lt;/strong&gt; with &lt;span class="accent"&gt;CKD &amp; hypertension&lt;/span&gt; prevention and management'
+            />
+            <small style="color: #666; display: block; margin-top: 0.25rem"
+              >Use HTML: &lt;strong&gt; for bold, &lt;span class="accent"&gt;
+              for accent color</small
+            >
+          </div>
+          <div class="form-group">
+            <div class="checkbox-group">
+              <input
+                type="checkbox"
+                id="accepting-patients"
+                name="acceptingPatients"
+              />
+              <label for="accepting-patients">Accepting new patients</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="availability-status">Availability Status</label>
+            <input
+              type="text"
+              id="availability-status"
+              name="availabilityStatus"
+              placeholder="e.g., Limited appointments available Friday–Sunday, 9:00 AM–5:00 PM"
+            />
+            <small style="color: #666; display: block; margin-top: 0.25rem"
+              >This will appear under the consultation button and in the contact
+              section</small
+            >
+          </div>
+          <div class="form-group">
+            <div class="checkbox-group">
+              <input
+                type="checkbox"
+                id="show-header-nav"
+                name="showHeaderNav"
+              />
+              <label for="show-header-nav">Show header navigation</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="checkbox-group">
+              <input
+                type="checkbox"
+                id="show-hero-availability"
+                name="showHeroAvailability"
+              />
+              <label for="show-hero-availability"
+                >Show hero availability text</label
+              >
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="checkbox-group">
+              <input type="checkbox" id="show-hero-cta" name="showHeroCTA" />
+              <label for="show-hero-cta">Show consultation button</label>
+            </div>
+          </div>
+
+          <div class="section-divider"></div>
+
+          <!-- Contact Settings -->
+          <h2>Contact Information</h2>
+          <div class="form-group">
+            <label for="business-name">Business Name</label>
+            <input
+              type="text"
+              id="business-name"
+              name="businessName"
+              placeholder="dummyLLC"
+            />
+            <div class="checkbox-group" style="margin-top: 0.5rem">
+              <input
+                type="checkbox"
+                id="show-contact-business"
+                name="showContactBusiness"
+              />
+              <label for="show-contact-business" style="font-weight: normal"
+                >Show Business field</label
+              >
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="location">Location</label>
+            <input
+              type="text"
+              id="location"
+              name="location"
+              placeholder="Harford County, Maryland"
+            />
+            <div class="checkbox-group" style="margin-top: 0.5rem">
+              <input
+                type="checkbox"
+                id="show-contact-location"
+                name="showContactLocation"
+              />
+              <label for="show-contact-location" style="font-weight: normal"
+                >Show Location field</label
+              >
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="contact-email">Contact Email</label>
+            <input
+              type="email"
+              id="contact-email"
+              name="contactEmail"
+              placeholder="contact@dummyllc.com"
+            />
+            <div class="checkbox-group" style="margin-top: 0.5rem">
+              <input
+                type="checkbox"
+                id="show-contact-email"
+                name="showContactEmail"
+              />
+              <label for="show-contact-email" style="font-weight: normal"
+                >Show Email field</label
+              >
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="availability-status">Availability Status</label>
+            <input
+              type="text"
+              id="availability-status"
+              name="availabilityStatus"
+              placeholder="Please contact us to inquire about availability."
+            />
+            <small style="color: #666; display: block; margin-top: 0.25rem"
+              >This will appear under the consultation button and in the contact
+              section</small
+            >
+            <div class="checkbox-group" style="margin-top: 0.5rem">
+              <input
+                type="checkbox"
+                id="show-contact-availability"
+                name="showContactAvailability"
+              />
+              <label for="show-contact-availability" style="font-weight: normal"
+                >Show Availability field</label
+              >
+            </div>
+          </div>
+
+          <button type="submit" class="btn-save">Save Changes</button>
+        </form>
+      </div>
     </div>
 
     <script src="assets/js/config.js"></script>
     <script src="assets/js/admin.js"></script>
-</body>
+  </body>
 </html>
-

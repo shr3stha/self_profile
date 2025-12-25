@@ -94,14 +94,31 @@
         config.acceptingPatients || false;
       document.getElementById("availability-status").value =
         config.availabilityStatus || "";
+
+      // Contact visibility settings
+      document.getElementById("show-contact-business").checked =
+        config.showContactBusiness !== undefined
+          ? config.showContactBusiness
+          : true;
+      document.getElementById("show-contact-location").checked =
+        config.showContactLocation !== undefined
+          ? config.showContactLocation
+          : true;
+      document.getElementById("show-contact-email").checked =
+        config.showContactEmail !== undefined ? config.showContactEmail : true;
+      document.getElementById("show-contact-availability").checked =
+        config.showContactAvailability !== undefined
+          ? config.showContactAvailability
+          : true;
+
       document.getElementById("show-header-nav").checked =
-        config.showHeaderNav !== undefined ? config.showHeaderNav : true;
+        config.showHeaderNav !== undefined ? config.showHeaderNav : false;
       document.getElementById("show-hero-availability").checked =
         config.showHeroAvailability !== undefined
           ? config.showHeroAvailability
-          : true;
+          : false;
       document.getElementById("show-hero-cta").checked =
-        config.showHeroCTA !== undefined ? config.showHeroCTA : true;
+        config.showHeroCTA !== undefined ? config.showHeroCTA : false;
 
       // Contact
       document.getElementById("business-name").value =
