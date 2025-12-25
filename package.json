@@ -1,0 +1,22 @@
+{
+  "name": "fnp-profile-site",
+  "version": "1.0.0",
+  "description": "Static site for Family Nurse Practitioner specializing in kidney disease",
+  "main": "index.html",
+  "scripts": {
+    "test": "node tests/config.test.js && node tests/main.test.js && node tests/admin.test.js",
+    "serve": "npx http-server . -p 8080 -o",
+    "lint": "eslint assets/js/*.js"
+  },
+  "keywords": [
+    "healthcare",
+    "nurse-practitioner",
+    "static-site"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
+
