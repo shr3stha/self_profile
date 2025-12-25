@@ -20,6 +20,7 @@
             this.applyTheme();
             this.applyHero();
             this.applyContact();
+            this.applyVisibility();
             this.setCurrentYear();
         }
 
@@ -53,6 +54,27 @@
         }
 
         /**
+         * Applies visibility settings for header nav, hero availability, and hero CTA
+         */
+        applyVisibility() {
+            const headerNav = document.getElementById('header-nav');
+            const heroAvailability = document.getElementById('hero-availability');
+            const heroCTA = document.getElementById('hero-cta');
+
+            if (headerNav) {
+                headerNav.style.display = (this.config.showHeaderNav !== false) ? '' : 'none';
+            }
+
+            if (heroAvailability) {
+                heroAvailability.style.display = (this.config.showHeroAvailability !== false) ? '' : 'none';
+            }
+
+            if (heroCTA) {
+                heroCTA.style.display = (this.config.showHeroCTA !== false) ? '' : 'none';
+            }
+        }
+
+        /**
          * Applies hero section configuration
          */
         applyHero() {
@@ -75,9 +97,8 @@
             const heroAvailability = document.getElementById('hero-availability');
             if (heroAvailability && this.config.availabilityStatus) {
                 heroAvailability.textContent = this.config.availabilityStatus;
-            } else if (heroAvailability) {
-                heroAvailability.style.display = 'none';
             }
+            // Note: Visibility is controlled by applyVisibility() method
 
             if (profileImage && this.config.profileImageUrl) {
                 profileImage.src = this.config.profileImageUrl;

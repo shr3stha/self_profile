@@ -94,6 +94,14 @@
         config.acceptingPatients || false;
       document.getElementById("availability-status").value =
         config.availabilityStatus || "";
+      document.getElementById("show-header-nav").checked =
+        config.showHeaderNav !== undefined ? config.showHeaderNav : true;
+      document.getElementById("show-hero-availability").checked =
+        config.showHeroAvailability !== undefined
+          ? config.showHeroAvailability
+          : true;
+      document.getElementById("show-hero-cta").checked =
+        config.showHeroCTA !== undefined ? config.showHeroCTA : true;
 
       // Contact
       document.getElementById("business-name").value =
@@ -122,6 +130,10 @@
         availabilityStatus: document
           .getElementById("availability-status")
           .value.trim(),
+        showHeaderNav: document.getElementById("show-header-nav").checked,
+        showHeroAvailability: document.getElementById("show-hero-availability")
+          .checked,
+        showHeroCTA: document.getElementById("show-hero-cta").checked,
         businessName: document.getElementById("business-name").value.trim(),
         location: document.getElementById("location").value.trim(),
         contactEmail: document.getElementById("contact-email").value.trim(),
