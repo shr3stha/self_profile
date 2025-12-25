@@ -255,7 +255,7 @@ this.password = "your-secure-password-here";
    **Hero/Profile Section**:
 
    - **Profile Image URL**: Full URL to your profile image
-   - **Display Name**: Your name and credentials (e.g., "Jane Doe, FNP")
+   - **Display Name**: Your name and credentials (e.g., "Rujita Munankarmi, FNP")
    - **Hero Subtitle**: Your credentials and specialization. Supports HTML formatting: use `<strong>` for bold (primary color) and `<span class="accent">` for accent color (e.g., "<strong>Primary care</strong> with <span class=\"accent\">CKD & hypertension</span> prevention and management")
    - **Accepting New Patients**: Checkbox to show/hide badge
    - **Availability Status**: Text describing your availability (e.g., "Limited appointments available Friday–Sunday, 9:00 AM–5:00 PM.")
@@ -293,7 +293,7 @@ The site uses browser `localStorage` to store configuration:
 
 ```javascript
 {
-  "heroName": "Jane Doe, FNP",
+  "heroName": "Rujita Munankarmi, FNP",
   "heroSubtitle": "<strong>Primary care</strong> with <span class=\"accent\">CKD & hypertension</span> prevention and management",
   "profileImageUrl": "assets/images/placeholder-profile.svg",
   "acceptingPatients": false,
@@ -302,9 +302,9 @@ The site uses browser `localStorage` to store configuration:
   "bannerText": "",
   "bannerType": "info",
   "theme": "default",
-  "businessName": "dummyLLC",
+  "businessName": "CarenexLLC",
   "location": "Bel Air, Maryland (serving surrounding communities)",
-  "contactEmail": "contact@dummyllc.com"
+  "contactEmail": "carenex.np@gmail.com"
 }
 ```
 
@@ -460,7 +460,7 @@ runner.test('Test description', () => {
 
 #### Content Updates
 
-- [ ] Replace "dummyLLC" with your actual business name in:
+  - [ ] Replace "CarenexLLC" with your actual business name in:
 
   - [ ] `index.html` (logo, footer, contact section)
   - [ ] `admin.html` (admin header)
@@ -470,7 +470,7 @@ runner.test('Test description', () => {
 
 - [ ] Update personal information:
 
-  - [ ] Replace "Jane Doe, FNP" with your actual name and credentials
+  - [ ] Replace "Rujita Munankarmi, FNP" with your actual name and credentials
   - [ ] Update credentials in About section (`index.html`)
   - [ ] Update hero credentials line
   - [ ] Add your actual location and service area
@@ -1011,7 +1011,7 @@ For issues, questions, or contributions:
 
 ---
 
-**Note**: Remember to replace "dummyLLC" with your actual business name throughout the codebase before deployment. See the [Pre-Deployment Checklist](#pre-deployment-checklist) for a complete list of items to update.
+**Note**: Remember to replace "CarenexLLC" with your actual business name throughout the codebase before deployment. See the [Pre-Deployment Checklist](#pre-deployment-checklist) for a complete list of items to update.
 
 ---
 

@@ -8,6 +8,7 @@
 
     class MainPageController {
         constructor() {
+            // Force refresh config to ensure latest values (handles migrations)
             this.config = configManager.load();
             this.init();
         }
@@ -16,12 +17,23 @@
          * Initializes the page by applying configuration
          */
         init() {
+            // Reload config to ensure we have the latest (after any migrations)
+            this.config = configManager.load();
             this.applyBanner();
             this.applyTheme();
             this.applyHero();
             this.applyContact();
             this.applyVisibility();
             this.setCurrentYear();
+        }
+        
+        /**
+         * Refreshes all components with current config
+         * Call this after config changes to update all components
+         */
+        refreshAll() {
+            this.config = configManager.load();
+            this.init();
         }
 
         /**
