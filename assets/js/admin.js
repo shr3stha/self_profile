@@ -84,7 +84,7 @@
             // Hero/Profile
             document.getElementById('profile-image-url').value = config.profileImageUrl || '';
             document.getElementById('hero-name').value = config.heroName || '';
-            document.getElementById('hero-credentials').value = config.heroCredentials || '';
+            document.getElementById('hero-subtitle').value = config.heroSubtitle || '';
             document.getElementById('hero-tagline').value = config.heroTagline || '';
             document.getElementById('accepting-patients').checked = config.acceptingPatients || false;
             document.getElementById('availability-status').value = config.availabilityStatus || '';
@@ -106,7 +106,7 @@
                 theme: document.getElementById('theme').value,
                 profileImageUrl: document.getElementById('profile-image-url').value.trim(),
                 heroName: document.getElementById('hero-name').value.trim(),
-                heroCredentials: document.getElementById('hero-credentials').value.trim(),
+                heroSubtitle: document.getElementById('hero-subtitle').value.trim(),
                 heroTagline: document.getElementById('hero-tagline').value.trim(),
                 acceptingPatients: document.getElementById('accepting-patients').checked,
                 availabilityStatus: document.getElementById('availability-status').value.trim(),

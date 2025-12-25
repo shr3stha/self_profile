@@ -40,7 +40,8 @@ A lightweight, fast-loading static website for a Family Nurse Practitioner speci
 - **Modular JavaScript**: Clean separation of concerns (SOLID principles)
 - **Error Handling**: Graceful fallbacks for missing images and data
 - **Accessibility**: Semantic HTML, proper ARIA labels, keyboard navigation
-- **SEO Friendly**: Proper meta tags, semantic structure, fast loading
+- **SEO Friendly**: Proper meta tags, Open Graph tags for social sharing, semantic structure, fast loading
+- **Accessibility**: Focus states for keyboard navigation, semantic HTML, proper contrast ratios
 
 ## Project Structure
 
@@ -255,7 +256,7 @@ this.password = "your-secure-password-here";
 
    - **Profile Image URL**: Full URL to your profile image
    - **Display Name**: Your name and credentials (e.g., "Jane Doe, FNP")
-   - **Credentials Line**: Your specialization description
+   - **Hero Subtitle**: Your credentials and specialization (e.g., "Family Nurse Practitioner – Comprehensive primary care with CKD & hypertension management")
    - **Tagline**: Your value proposition (one sentence)
    - **Accepting New Patients**: Checkbox to show/hide badge
    - **Availability Status**: Text describing your availability (e.g., "Limited appointments available Friday–Sunday, 9:00 AM–5:00 PM.")
@@ -294,7 +295,7 @@ The site uses browser `localStorage` to store configuration:
 ```javascript
 {
   "heroName": "Jane Doe, FNP",
-  "heroCredentials": "Family Nurse Practitioner specializing in chronic kidney disease and hypertension management",
+  "heroSubtitle": "Family Nurse Practitioner – Comprehensive primary care with CKD & hypertension management",
   "heroTagline": "Holistic evidence-based kidney care for adults.",
   "profileImageUrl": "assets/images/placeholder-profile.svg",
   "acceptingPatients": false,

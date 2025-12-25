@@ -57,7 +57,7 @@
          */
         applyHero() {
             const heroName = document.getElementById('hero-name');
-            const heroCredentials = document.getElementById('hero-credentials');
+            const heroSubtitle = document.querySelector('.hero-subtitle');
             const heroTagline = document.getElementById('hero-tagline');
             const profileImage = document.getElementById('profile-image');
             const acceptingBadge = document.getElementById('accepting-patients-badge');
@@ -67,8 +67,8 @@
                 heroName.textContent = this.config.heroName;
             }
 
-            if (heroCredentials && this.config.heroCredentials) {
-                heroCredentials.textContent = this.config.heroCredentials;
+            if (heroSubtitle && this.config.heroSubtitle) {
+                heroSubtitle.textContent = this.config.heroSubtitle;
             }
 
             if (heroTagline && this.config.heroTagline) {
